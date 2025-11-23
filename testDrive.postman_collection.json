@@ -1,0 +1,544 @@
+{
+	"info": {
+		"_postman_id": "a80d4b27-316a-44a1-88d1-ca0024e37ca5",
+		"name": "testDrive",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32316508"
+	},
+	"item": [
+		{
+			"name": "Получение всех машин",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n{\r\n    \"UF_MODEL\": \"Archer Quartz EC-T2 r660\",\r\n    \"UF_YEAR\": 2066,\r\n    \"UF_VIN\": \"ZXCQS6G33FG666777\",\r\n    \"UF_STATUS\": 1,\r\n    \"UF_PRICE_PER_DAY\" : 3300\r\n},\r\n{\r\n    \"UF_MODEL\": \"Chevillon Emperor 620 Ragnar\",\r\n    \"UF_YEAR\": 2065,\r\n    \"UF_VIN\": \"ZXCQS6G33FG666777\",\r\n    \"UF_STATUS\": 1,\r\n    \"UF_PRICE_PER_DAY\" : 5700\r\n},\r\n{\r\n    \"UF_MODEL\": \"Chevillon Thrax 388 Jefferson\",\r\n    \"UF_YEAR\": 2063,\r\n    \"UF_VIN\": \"ZXCQS6G33FG666777\",\r\n    \"UF_STATUS\": 2,\r\n    \"UF_PRICE_PER_DAY\" : 2200\r\n}\r\n\r\n]"
+				},
+				"url": {
+					"raw": "{{url}}/cars/get",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cars",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Добавление одной машины",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UF_MODEL\": \"Chevillon Legatus 450 Aquila\",\r\n    \"UF_YEAR\": 2044,\r\n    \"UF_VIN\": \"ZXCQS6G33FG666777\",\r\n    \"UF_STATUS\": 1,\r\n    \"UF_PRICE_PER_DAY\" : 3300\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://192.168.1.68/api/v1/cars/create",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"68"
+					],
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Проверка обязательного поля UF_MODEL",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UF_MODEL\": \"Chevillon Legatus 450 Aquila\",\r\n    \"UF_YEAR\": 2044,\r\n    \"UF_VIN\": \"ZXCQS6G33FG666777\",\r\n    \"UF_STATUS\": 1,\r\n    \"UF_PRICE_PER_DAY\" : 3300\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://192.168.1.68/api/v1/cars/create",
+							"protocol": "https",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"68"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"create"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Проверка на уникальный VIN",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UF_MODEL\": \"Chevillon Legatus 450 Aquila\",\r\n    \"UF_YEAR\": 2044,\r\n    \"UF_VIN\": \"ZXCQS6G33FG666777\",\r\n    \"UF_STATUS\": 1,\r\n    \"UF_PRICE_PER_DAY\" : 3300\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://192.168.1.68/api/v1/cars/create",
+							"protocol": "https",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"68"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"create"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Добавление массива машин",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n{\r\n    \"UF_MODEL\": \"Archer Quartz EC-T2 r660\",\r\n    \"UF_YEAR\": 2066,\r\n    \"UF_VIN\": \"ZXCQS6G33FG666777\",\r\n    \"UF_STATUS\": 1,\r\n    \"UF_PRICE_PER_DAY\" : 3300\r\n},\r\n{\r\n    \"UF_MODEL\": \"Chevillon Emperor 620 Ragnar\",\r\n    \"UF_YEAR\": 2065,\r\n    \"UF_VIN\": \"ZXCQS6G33FG666777\",\r\n    \"UF_STATUS\": 1,\r\n    \"UF_PRICE_PER_DAY\" : 5700\r\n},\r\n{\r\n    \"UF_MODEL\": \"Chevillon Thrax 388 Jefferson\",\r\n    \"UF_YEAR\": 2063,\r\n    \"UF_VIN\": \"ZXCQS6G33FG666777\",\r\n    \"UF_STATUS\": 2,\r\n    \"UF_PRICE_PER_DAY\" : 2200\r\n}\r\n\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://192.168.1.68/api/v1/cars/createBunch",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"68"
+					],
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						"createBunch"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Проверка обязательного поля UF_MODEL",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n{\r\n    \"UF_MODEL\": \"Archer Quartz EC-T2 r660\",\r\n    \"UF_YEAR\": 2066,\r\n    \"UF_VIN\": \"ZXCQS6G33FG666777\",\r\n    \"UF_STATUS\": 1,\r\n    \"UF_PRICE_PER_DAY\" : 3300\r\n},\r\n{\r\n    \"UF_MODEL\": \"Chevillon Emperor 620 Ragnar\",\r\n    \"UF_YEAR\": 2065,\r\n    \"UF_VIN\": \"ZXCQS6G33FG666777\",\r\n    \"UF_STATUS\": 1,\r\n    \"UF_PRICE_PER_DAY\" : 5700\r\n},\r\n{\r\n    \"UF_MODEL\": \"Chevillon Thrax 388 Jefferson\",\r\n    \"UF_YEAR\": 2063,\r\n    \"UF_VIN\": \"ZXCQS6G33FG666777\",\r\n    \"UF_STATUS\": 2,\r\n    \"UF_PRICE_PER_DAY\" : 2200\r\n}\r\n\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://192.168.1.68/api/v1/cars/createBunch",
+							"protocol": "https",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"68"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"createBunch"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Проверка на уникальный VIN",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n{\r\n    \"UF_MODEL\": \"Archer Quartz EC-T2 r660\",\r\n    \"UF_YEAR\": 2066,\r\n    \"UF_VIN\": \"ZXCQS6G33FG666777\",\r\n    \"UF_STATUS\": 1,\r\n    \"UF_PRICE_PER_DAY\" : 3300\r\n},\r\n{\r\n    \"UF_MODEL\": \"Chevillon Emperor 620 Ragnar\",\r\n    \"UF_YEAR\": 2065,\r\n    \"UF_VIN\": \"SSSQS6G33FG666555\",\r\n    \"UF_STATUS\": 1,\r\n    \"UF_PRICE_PER_DAY\" : 5700\r\n},\r\n{\r\n    \"UF_MODEL\": \"Chevillon Thrax 388 Jefferson\",\r\n    \"UF_YEAR\": 2063,\r\n    \"UF_VIN\": \"ZXCQS6G33FG666777\",\r\n    \"UF_STATUS\": 2,\r\n    \"UF_PRICE_PER_DAY\" : 2200\r\n}\r\n\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://192.168.1.68/api/v1/cars/createBunch",
+							"protocol": "https",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"68"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"createBunch"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Редактирование машины",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UF_PRICE_PER_DAY\": 9900,\r\n    \"UF_STATUS\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/cars/update/35",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cars",
+						"update",
+						"35"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Редактирование цены",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UF_PRICE_PER_DAY\": 3333,\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/cars/update/35",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cars",
+								"update",
+								"35"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Редактирование статуса",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UF_PRICE_PER_DAY\": 9900,\r\n    \"UF_STATUS\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/cars/update/35",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cars",
+								"update",
+								"35"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Проверка на значение статуса",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UF_STATUS\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/cars/update/35",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cars",
+								"update",
+								"35"
+							]
+						}
+					},
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"domain": "",
+							"path": ""
+						}
+					],
+					"body": ""
+				},
+				{
+					"name": "Проверка на пустой JSON",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UF_PRICE_PER_DAY\": 9900,\r\n    \"UF_STATUS\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/cars/update/35",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cars",
+								"update",
+								"35"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Удаление машины",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Удаление несуществующей машины",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Создание бронирования",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UF_CAR\": 2,\r\n    \"UF_DATE_START\": \"20.11.2025 12:00:00\",\r\n    \"UF_DATE_END\" : \"25.11.2025 12:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/testDrives/create",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"testDrives",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Проверка по статусу",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UF_CAR\": 2,\r\n    \"UF_DATE_START\": \"20.11.2025 12:00:00\",\r\n    \"UF_DATE_END\" : \"25.11.2025 12:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/testDrives/create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"testDrives",
+								"create"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Проверка по датам",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UF_CAR\": 2,\r\n    \"UF_DATE_START\": \"20.11.2025 12:00:00\",\r\n    \"UF_DATE_END\" : \"25.11.2025 12:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/testDrives/create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"testDrives",
+								"create"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Проверка на несуществующий ID",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UF_CAR\": 1000,\r\n    \"UF_DATE_START\": \"20.11.2025 12:00:00\",\r\n    \"UF_DATE_END\" : \"25.11.2025 12:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/testDrives/create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"testDrives",
+								"create"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
